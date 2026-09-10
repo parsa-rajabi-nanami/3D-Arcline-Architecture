@@ -74,9 +74,9 @@ public/
 
 ## GitHub Pages deployment
 
-The workflow in `.github/workflows/deploy-pages.yml` runs on pushes to `main` and manual dispatches. It installs from the committed Bun lockfile, builds and prerenders the site, copies the prerendered shell to `404.html` for GitHub Pages fallback behavior, uploads `.output/public`, and deploys it with the official Pages action.
+The workflow in `.github/workflows/deploy-pages.yml` runs on pushes to `main` and manual dispatches. It installs from the committed Bun lockfile, builds and prerenders the site, copies the prerendered shell to `404.html`, and publishes `.output/public` to the `gh-pages` branch with the `gh-pages` package.
 
-In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The expected URL is:
+In the repository settings, set **Pages → Build and deployment → Source** to **Deploy from a branch**, then choose the `gh-pages` branch and `/(root)` folder. The expected URL is:
 
 <https://parsa-rajabi-nanami.github.io/3D-Arcline-Architecture/>
 

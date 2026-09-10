@@ -56,7 +56,7 @@ The build uses TanStack Start prerendering and writes the deployable site to `.o
 
 Production Vite output uses `/3D-Arcline-Architecture/` as its base path. The router uses that base in the browser while retaining `/` for SSR prerender requests. If the repository name changes, update the Vite base, router expectation, canonical URL, Open Graph URLs, README URL, and workflow assumptions together.
 
-The workflow builds with Bun, prerenders the root page, copies `index.html` to `404.html`, and uploads `.output/public`. A deployment change is incomplete until the generated HTML references the repository-prefixed CSS/JS and public asset URLs.
+The workflow builds with Bun, prerenders the root page, copies `index.html` to `404.html`, and publishes `.output/public` to the `gh-pages` branch through the `gh-pages` package. A deployment change is incomplete until the generated HTML references the repository-prefixed CSS/JS and public asset URLs.
 
 ## Verification and stop condition
 
