@@ -6,16 +6,16 @@ This repository is a single-page React 19 landing page for an architecture and d
 
 ## Tooling and commands
 
-Use Bun and keep `bun.lock` committed. Node/npm may be used for local diagnosis when Bun is unavailable, but dependency changes must be reflected in the Bun lockfile.
+Use npm and keep `package-lock.json` committed. Dependency changes must be reflected in the npm lockfile.
 
 ```bash
-bun install
-bun run dev
-bun run lint
-bun run typecheck
-bun test
-bun run build
-bun run preview
+npm install
+npm run dev
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run preview
 ```
 
 The build uses TanStack Start prerendering and writes the deployable site to `.output/public/`. Do not treat `.output/`, `dist/`, or other generated directories as source files.
@@ -56,17 +56,17 @@ The build uses TanStack Start prerendering and writes the deployable site to `.o
 
 Production Vite output uses `/3D-Arcline-Architecture/` as its base path. The router uses that base in the browser while retaining `/` for SSR prerender requests. If the repository name changes, update the Vite base, router expectation, canonical URL, Open Graph URLs, README URL, and workflow assumptions together.
 
-The workflow builds with Bun, prerenders the root page, copies `index.html` to `404.html`, and publishes `.output/public` to the `gh-pages` branch through the `gh-pages` package. A deployment change is incomplete until the generated HTML references the repository-prefixed CSS/JS and public asset URLs.
+The workflow builds with npm, prerenders the root page, copies `index.html` to `404.html`, and publishes `.output/public` to the `gh-pages` branch through the `gh-pages` package. A deployment change is incomplete until the generated HTML references the repository-prefixed CSS/JS and public asset URLs.
 
 ## Verification and stop condition
 
 After UI, routing, metadata, media, or configuration changes, run:
 
 ```bash
-bun run lint
-bun run typecheck
-bun test
-bun run build
+npm run lint
+npm run typecheck
+npm test
+npm run build
 ```
 
 Inspect the final diff and `.output/public/index.html` for broken root-absolute assets, missing metadata, accidental generated files, or unrelated cleanup. Stop when all four checks pass and the artifact contains `index.html`, hashed assets, favicon, hero media, and the image-sequence frames.

@@ -16,15 +16,15 @@ Live site: <https://parsa-rajabi-nanami.github.io/3D-Arcline-Architecture/>
 ## Requirements
 
 - Node.js 20.19+ or 22.12+
-- Bun (the repository lockfile is `bun.lock`)
+- npm (the repository lockfile is `package-lock.json`)
 
 The current page does not require environment variables or a backend service.
 
 ## Local development
 
 ```bash
-bun install
-bun run dev
+npm install
+npm run dev
 ```
 
 The development server is available at `http://localhost:5173/`. Production builds use the repository base path `/3D-Arcline-Architecture/` so asset URLs work on GitHub Pages.
@@ -32,14 +32,14 @@ The development server is available at `http://localhost:5173/`. Production buil
 ## Verification commands
 
 ```bash
-bun run lint       # ESLint and Prettier rules
-bun run typecheck  # TypeScript without emitting files
-bun test           # Vitest once
-bun run build      # Production client/server build plus static prerender
-bun run preview    # Preview the generated build locally
+npm run lint       # ESLint and Prettier rules
+npm run typecheck  # TypeScript without emitting files
+npm test           # Vitest once
+npm run build      # Production client/server build plus static prerender
+npm run preview    # Preview the generated build locally
 ```
 
-`bun run build` writes the deployable static artifact to `.output/public/`. That directory contains the prerendered `index.html`, hashed JavaScript/CSS, and copied public assets. Run `bun run deploy` to create the Pages `404.html` fallback and publish the artifact to the `gh-pages` branch.
+`npm run build` writes the deployable static artifact to `.output/public/`. That directory contains the prerendered `index.html`, hashed JavaScript/CSS, and copied public assets. Run `npm run deploy` to create the Pages `404.html` fallback and publish the artifact to the `gh-pages` branch.
 
 ## Project structure
 
@@ -76,7 +76,7 @@ public/
 Deployment is handled locally through the `gh-pages` package. Run:
 
 ```bash
-bun run deploy
+npm run deploy
 ```
 
 The `predeploy` script builds and prerenders the site, copies `index.html` to `404.html` for client-side routing, and then `gh-pages` publishes `.output/public` to the `gh-pages` branch.
